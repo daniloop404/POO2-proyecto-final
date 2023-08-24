@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
+    <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body style="background-color:black">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/">
+            <img th:src="@{img/logo.png}" alt="IsekaiYume" class="navbar-logo">
+            IsekaiYume
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="catalogo">Catalogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="noticias">Noticias</a>
+                </li>
+            </ul>
+
+            <!-- Barra de búsqueda -->
+            <form class="form-inline">
+                <div class="input-group">
+                    <button class="btn btn-outline-light" type="submit">Buscar anime</button>
+                    <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+                </div>
+            </form>
+
+            <!-- Icono de usuario con estilo de hover y tamaño más grande -->
+            <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
+                <li>
+                    <a href="#" class="nav-link me-3">
+                        <i class="fas fa-user text-white fa-lg user-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicadores del carrusel -->
+    <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+
+    <!-- Contenido del carrusel -->
+    <div class="carousel-inner">
+        <!-- Carrusel 1: Re:Zero -->
+        <div class="carousel-item active" style="background-color: #FF5733;">
+            <img th:src="@{img/home2.png}" class="d-block w-100 custom-img" alt="Re:Zero">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="caption-content">
+                    <h5>Re:Zero</h5>
+                    <p>¡Disfruta de las aventuras de Subaru en un mundo diferente!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrusel 2: Naruto -->
+        <div class="carousel-item" style="background-color: #FFD700;">
+            <img th:src="@{img/home3.jpg}" class="d-block w-100 custom-img" alt="Naruto">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="caption-content">
+                    <h5>Naruto</h5>
+                    <p>Acompaña a Naruto en su viaje para convertirse en Hokage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrusel 3: One Piece -->
+        <div class="carousel-item" style="background-color: #0099cc;">
+            <img th:src="@{img/home1.png}" class="d-block w-100 custom-img" alt="One Piece">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="caption-content">
+                    <h5>One Piece</h5>
+                    <p>Únete a Luffy en la búsqueda del One Piece.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles del carrusel -->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
+
+<div class="container my-5 mx-auto custom-width">
+<div style="border-bottom: 2px solid red;"></div>
+</div>
+
+<div class="container">
+    <!-- Sección de Animes Más Vistos -->
+    <section class="my-5">
+        <h2 class="text-center text-white">Animes Más Vistos</h2>
+        <p class="text-center text-white">Explora nuestra selección de los animes más populares y emocionantes. Sumérgete en mundos llenos de aventuras, emociones y personajes memorables.</p>
+    </section>
+
+
+<div id="animeCarousel" class="carousel slide">
+    <!-- Indicadores del carrusel -->
+    <ol class="carousel-indicators">
+        <li data-bs-target="#animeCarousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#animeCarousel" data-bs-slide-to="1"></li>
+        <!-- Agrega más indicadores según sea necesario -->
+    </ol>
+
+    <!-- Contenido del carrusel -->
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Tarjeta 1: One Piece -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">One Piece</h4>
+                                <p class="card-text">Subtitulado y doblado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Dragon Ball -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/img/amvcard2.webp}" class="card-img-top" alt="Dragon Ball">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Dragon Ball</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agrega más tarjetas según sea necesario -->
+
+                    <!-- Tarjeta 3: Attack on Titan -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/img/amvcard3.jpg}" class="card-img-top" alt="Attack on Titan">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Attack on Titan</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/img/amvcard4.jpg}" class="card-img-top" alt="Naruto">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Naruto</h4>
+                                <p class="card-text">Subtitulado y doblado</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Tarjeta 1: Naruto -->
+
+
+                    <!-- Agrega más tarjetas según sea necesario -->
+
+                    <!-- Tarjeta 2: Fullmetal Alchemist -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/images/fullmetal_alchemist.jpg}" class="card-img-top" alt="Fullmetal Alchemist">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Fullmetal Alchemist</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Cowboy Bebop -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/images/cowboy_bebop.jpg}" class="card-img-top" alt="Cowboy Bebop">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Cowboy Bebop</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/images/death_note.jpg}" class="card-img-top" alt="Death Note">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Death Note</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="card bg-secondary h-100">
+                            <img th:src="@{/images/tokyo_ghoul.jpg}" class="card-img-top" alt="Tokyo Ghoul">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Tokyo Ghoul</h4>
+                                <p class="card-text">Subtitulado</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más slides según sea necesario -->
+    </div>
+
+
+
+    <!-- Controles del carrusel -->
+    <a class="carousel-control-prev" href="#animeCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#animeCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+</div>
+
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid blue;"></div>
+</div>
+<div class="container">
+    <!-- Sección de Animes Más Vistos -->
+    <section class="my-5">
+        <h2 class="text-center text-white">Animes Más Vistos</h2>
+        <p class="text-center text-white">Explora nuestra selección de los animes más populares y emocionantes. Sumérgete en mundos llenos de aventuras, emociones y personajes memorables.</p>
+    </section>
+
+
+    <div id="animeCarousel2" class="carousel slide">
+        <!-- Indicadores del carrusel -->
+        <ol class="carousel-indicators">
+            <li data-bs-target="#animeCarousel2" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#animeCarousel2" data-bs-slide-to="1"></li>
+            <!-- Agrega más indicadores según sea necesario -->
+        </ol>
+
+        <!-- Contenido del carrusel -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <!-- Tarjeta 1: One Piece -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">One Piece</h4>
+                                    <p class="card-text">Subtitulado y doblado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: Dragon Ball -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/img/amvcard2.webp}" class="card-img-top" alt="Dragon Ball">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Dragon Ball</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agrega más tarjetas según sea necesario -->
+
+                        <!-- Tarjeta 3: Attack on Titan -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/img/amvcard3.jpg}" class="card-img-top" alt="Attack on Titan">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Attack on Titan</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/img/amvcard4.jpg}" class="card-img-top" alt="Naruto">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Naruto</h4>
+                                    <p class="card-text">Subtitulado y doblado</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <!-- Tarjeta 1: Naruto -->
+
+
+                        <!-- Agrega más tarjetas según sea necesario -->
+
+                        <!-- Tarjeta 2: Fullmetal Alchemist -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/images/fullmetal_alchemist.jpg}" class="card-img-top" alt="Fullmetal Alchemist">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Fullmetal Alchemist</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 3: Cowboy Bebop -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/images/cowboy_bebop.jpg}" class="card-img-top" alt="Cowboy Bebop">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Cowboy Bebop</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/images/death_note.jpg}" class="card-img-top" alt="Death Note">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Death Note</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-secondary h-100">
+                                <img th:src="@{/images/tokyo_ghoul.jpg}" class="card-img-top" alt="Tokyo Ghoul">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Tokyo Ghoul</h4>
+                                    <p class="card-text">Subtitulado</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Agrega más slides según sea necesario -->
+        </div>
+
+
+
+        <!-- Controles del carrusel -->
+        <a class="carousel-control-prev" href="#animeCarousel2" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#animeCarousel2" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid yellow;"></div>
+</div>
+<div class="container text-center py-5">
+    <section class="mx-auto custom-width"> <!-- Agregamos la clase mx-auto para centrar -->
+        <div class="text-center">
+            <iframe width="768" height="512" src="https://www.youtube.com/embed/FRn6xXXF-7s?si=oTIMkvTE7e2TRROM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h2 class="text-white mt-4">Attack on Titan</h2>
+        <p class="text-white">Descubre el mundo apocalíptico de "Attack on Titan".</p>
+        <p class="text-white">"Attack on Titan" es un anime que te sumergirá en un mundo donde la humanidad lucha por sobrevivir contra gigantes devoradores de hombres. Acompaña a Eren, Mikasa y Armin en su lucha desesperada por la supervivencia y desentraña los misterios detrás de estos monstruos colosales. ¡Una experiencia épica llena de intriga y acción!</p>
+    </section>
+</div>
+
+
+
+
+<footer class="footer bg-dark text-white text-center mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Descubre</h4>
+                <p>Series populares</p>
+                <p>Simulcasts</p>
+                <p>Explora</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Soporte</h4>
+                <p>Contacto</p>
+                <p>Centro de ayuda</p>
+                <p>Foros</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Legal</h4>
+                <p>Términos de uso</p>
+                <p>Política de privacidad</p>
+                <p>Política de cookies</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2023 IsekaiYume. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

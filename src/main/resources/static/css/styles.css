@@ -1,0 +1,119 @@
+.navbar-logo {
+    margin-top: -25px;
+    margin-bottom: -25px;
+    width: 80px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.lista{
+    margin-top: -25px;
+    margin-bottom: -30px;
+}
+.custom-img {
+    width: 400px;
+    height: 768px;
+    object-fit: cover;
+}
+.carousel-caption h5 {
+    font-size: 36px; /* Ajusta el tamaño de la fuente del título según tus necesidades */
+    color: #ffffff; /* Ajusta el color del texto del título según tus necesidades */
+}
+
+.carousel-caption p {
+    font-size: 24px; /* Ajusta el tamaño de la fuente del texto según tus necesidades */
+    color: #ffffff; /* Ajusta el color del texto según tus necesidades */
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.carousel-indicators li {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20px;
+    height: 4px;
+    margin: 0 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators li.active {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.carousel-caption .caption-content {
+    background-color: rgba(0, 0, 0, 0.322);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+.divider {
+    text-align: center;
+}
+
+.divider img {
+    max-width: 100%;
+    height: 50px;
+    margin: 0;
+}
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para centrar el botón */
+.btn-center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.footer {
+    padding: 2rem 0;
+}
+.navbar-brand {
+    font-size: 20px;!important; /* Cambia el tamaño del icono al hacer hover */
+}
+.navbar-brand:hover {
+    color: red !important;
+}
+.nav-link:hover {
+    color: red !important;
+}
+
+.btn{
+    background-color: black !important;
+    color: white;
+}
+.btn:hover{
+    color: red;
+}
+.user-icon:hover {
+    font-size: 36px; /* Cambia el tamaño del icono al hacer hover */
+    transition: font-size 0.3s; /* Agrega una transición suave al cambio de tamaño */
+    color: red !important; /* Cambia el color a rojo al hacer hover */
+}
+.card-title{
+    color: white;!important;
+}
+
+.card-body{
+    background-color: #9d9d9d;
+}
+.custom-width {
+    max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto; /* Esto centrará el contenido horizontalmente */
+}
