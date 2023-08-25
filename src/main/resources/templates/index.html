@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{css/styles.css}">
 </head>
 <body style="background-color:black">
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="/">
             <img th:src="@{img/logo.png}" alt="IsekaiYume" class="navbar-logo">
@@ -40,7 +40,7 @@
             <!-- Icono de usuario con estilo de hover y tamaño más grande -->
             <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
                 <li>
-                    <a href="#" class="nav-link me-3">
+                    <a href="registro" class="nav-link me-3">
                         <i class="fas fa-user text-white fa-lg user-icon"></i>
                     </a>
                 </li>
@@ -259,6 +259,7 @@
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>
+
 <div class="container">
     <!-- Sección de Animes Más Vistos -->
     <section class="my-5">
@@ -406,6 +407,7 @@
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid yellow;"></div>
 </div>
+
 <div class="container text-center py-5">
     <section class="mx-auto custom-width"> <!-- Agregamos la clase mx-auto para centrar -->
         <div class="text-center">
@@ -414,13 +416,18 @@
         <h2 class="text-white mt-4">Attack on Titan</h2>
         <p class="text-white">Descubre el mundo apocalíptico de "Attack on Titan".</p>
         <p class="text-white">"Attack on Titan" es un anime que te sumergirá en un mundo donde la humanidad lucha por sobrevivir contra gigantes devoradores de hombres. Acompaña a Eren, Mikasa y Armin en su lucha desesperada por la supervivencia y desentraña los misterios detrás de estos monstruos colosales. ¡Una experiencia épica llena de intriga y acción!</p>
+
+        <!-- Botón "Mirar Ahora" -->
+        <a href="#" class="btn btn-primary">Mirar Ahora</a>
     </section>
 </div>
 
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid red;"></div>
+</div>
 
 
-
-<footer class="footer bg-dark text-white text-center mt-4">
+<footer class="footer bg-primary text-white text-center mt-4">
     <div class="container">
         <div class="row">
             <div class="col-md-4">

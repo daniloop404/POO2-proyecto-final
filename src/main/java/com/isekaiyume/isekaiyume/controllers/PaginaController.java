@@ -9,14 +9,14 @@ public class PaginaController {
         return "index";
     }
 
-    @GetMapping("/contacto")
-    public String contacto(){
-        return "contacto";
+    @GetMapping("/registro")
+    public String registro(){
+        return "registro";
     }
 
-    @GetMapping("/nosotros")
-    public String nosotros(){
-        return "nosotros";
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 
     @GetMapping("/blog")

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registro</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
+    <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body style="background-color: black" >
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
+    <div class="container-fluid d-flex justify-content-center">
+        <a class="navbar-brand text-white" href="/">
+            <img th:src="@{img/logo.png}" alt="IsekaiYume" class="navbar-logo">
+            IsekaiYume
+        </a>
+    </div>
+</nav>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid blue;"></div>
+</div>
+
+<div class="container justify-content-center align-items-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Formulario de registro en una caja de color negro -->
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Registro</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Dirección de correo electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck">
+                            <label class="form-check-label" for="termsCheck">Acepto los términos y condiciones</label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </form>
+                    <!-- Enlace para iniciar sesión si ya tienes una cuenta -->
+                    <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="login">Ingresa aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid blue;"></div>
+</div>
+
+<footer class="footer bg-primary text-white text-center mt-4 align-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Descubre</h4>
+                <p>Series populares</p>
+                <p>Simulcasts</p>
+                <p>Explora</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Soporte</h4>
+                <p>Contacto</p>
+                <p>Centro de ayuda</p>
+                <p>Foros</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Legal</h4>
+                <p>Términos de uso</p>
+                <p>Política de privacidad</p>
+                <p>Política de cookies</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2023 IsekaiYume. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
