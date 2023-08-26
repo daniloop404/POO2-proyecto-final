@@ -24,8 +24,8 @@ public class PaginaController {
         return "login";
     }
 
-    @GetMapping("/portafolio")
-    public String portafolio(){
-        return "portafolio";
+    @GetMapping("/noticias")
+    public String noticias(){
+        return "noticias";
     }
 }

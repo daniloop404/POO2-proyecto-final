@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>noticias</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
+    <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/">
+            <img th:src="@{img/logo.png}" alt="IsekaiYume" class="navbar-logo">
+            IsekaiYume
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="catalogo">Catalogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="noticias">Noticias</a>
+                </li>
+            </ul>
+
+            <!-- Barra de búsqueda -->
+            <form class="form-inline">
+                <div class="input-group">
+                    <button class="btn btn-outline-light" type="submit">Buscar anime</button>
+                    <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+                </div>
+            </form>
+
+            <!-- Icono de usuario con estilo de hover y tamaño más grande -->
+            <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
+                <li>
+                    <a href="registro" class="nav-link me-3">
+                        <i class="fas fa-user text-white fa-lg user-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid red;"></div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <article class="blog-entry">
+                <div>
+                    <h1>¡Goku Alcanza el Ultra Instinto en una Épica Batalla!</h1>
+                    <p>Fecha de publicación: 25 de agosto de 2023</p>
+                    <p>Autor: AnimeEnthusiast</p>
+                    <p>Los fanáticos del anime Dragon Ball Super están en un estado de agitación después de la revelación más emocionante en la última entrega de la serie. En el episodio más reciente, Goku finalmente desbloqueó el poderoso estado del Ultra Instinto en una batalla épica contra su feroz enemigo, Moro.</p>
+                    <div class="img-center mb-4">
+                        <img th:src="@{/img/Kansei_Migate.webp}" alt="Goku en estado Ultra Instinto" class="img-fluid">
+                    </div>
+                    <p>La anticipación para este momento había estado construyéndose durante meses, con numerosos enfrentamientos y entrenamientos de Goku para dominar esta forma legendaria. El episodio en cuestión presentó una animación impresionante y una música espectacular, lo que lo convirtió en un hito memorable en la historia de Dragon Ball.</p>
+                    <p>El Ultra Instinto es una de las transformaciones más poderosas en el universo de Dragon Ball, y solo unos pocos guerreros han logrado dominarla. Se caracteriza por una velocidad y fuerza sobrenatural, así como una apariencia distintiva en la que el cabello y los ojos de Goku se vuelven plateados.</p>
+                    <p>La batalla entre Goku y Moro fue intensa y llena de giros inesperados. Los fanáticos estaban al borde de sus asientos mientras observaban a Goku desatar su nueva forma contra el villano que amenazaba la paz en la Tierra y el universo.</p>
+                    <p>El creador de Dragon Ball, Akira Toriyama, ha declarado que esta transformación es solo el comienzo de emocionantes nuevas aventuras para Goku y sus amigos. Los fanáticos ahora están ansiosos por ver cómo esta nueva forma afectará las futuras tramas y desafíos que enfrentará nuestro héroe.</p>
+                    <p>La noticia de la revelación del Ultra Instinto de Goku ha generado una gran conversación en las redes sociales y foros de fans. Los memes, teorías y discusiones sobre el episodio están en todas partes, y parece que este emocionante desarrollo mantendrá a la comunidad de Dragon Ball ocupada durante mucho tiempo.</p>
+                    <div class="container my-5 mx-auto custom-width">
+                        <div style="border-bottom: 2px solid blue;"></div>
+                    </div>
+                    <h2>Reacciones de los Fanáticos</h2>
+                    <div class="comments">
+                        <div class="comment">
+                            <p><strong>Fan123:</strong> ¡Esto fue lo más épico que he visto en Dragon Ball! Goku es imparable en el Ultra Instinto.</p>
+                        </div>
+                        <div class="comment">
+                            <p><strong>AnimeLover22:</strong> Esperé tanto tiempo para ver esto. Akira Toriyama realmente sabe cómo mantenernos emocionados.</p>
+                        </div>
+                    </div>
+                    <div class="container my-5 mx-auto custom-width">
+                        <div style="border-bottom: 2px solid blue;"></div>
+                    </div>
+                    <div class="comment-form mt-4">
+                        <h2>¿Qué opinas de la transformación del Ultra Instinto?</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Comentario</label>
+                                <textarea class="form-control" id="comment" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-center mt-4">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="col-lg-4 mt-5 mt-lg-0 mx-auto">
+            <aside class="blog-sidebar">
+                <h3>Noticias Relacionadas</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#">Gintama llega a su emocionante conclusión</a>
+                        <p>Fecha de publicación: 20 de agosto de 2023</p>
+                    </li>
+                    <li>
+                        <a href="#">Se Estrena la Segunda Temporada de Re:Zero</a>
+                        <p>Fecha de publicación: 15 de agosto de 2023</p>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid red;"></div>
+</div>
+
+<footer class="footer bg-primary text-white text-center mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Descubre</h4>
+                <p>Series populares</p>
+                <p>Simulcasts</p>
+                <p>Explora</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Soporte</h4>
+                <p>Contacto</p>
+                <p>Centro de ayuda</p>
+                <p>Foros</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Legal</h4>
+                <p>Términos de uso</p>
+                <p>Política de privacidad</p>
+                <p>Política de cookies</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2023 IsekaiYume. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
