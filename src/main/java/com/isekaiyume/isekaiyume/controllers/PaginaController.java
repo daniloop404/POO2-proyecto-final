@@ -14,14 +14,14 @@ public class PaginaController {
         return "registro";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
+    @GetMapping("/catalogo")
+    public String catalogo(){
+        return "catalogo";
     }
 
-    @GetMapping("/blog")
+    @GetMapping("/login")
     public String blog(){
-        return "blog";
+        return "login";
     }
 
     @GetMapping("/portafolio")
