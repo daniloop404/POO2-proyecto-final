@@ -14,10 +14,10 @@ public class PaginaController {
         return "registro";
     }
 
-    @GetMapping("/catalogo")
-    public String catalogo(){
-        return "catalogo";
-    }
+   // @GetMapping("/catalogo")
+   // public String catalogo(){
+    //    return "catalogo";
+  //  }
 
     @GetMapping("/login")
     public String blog(){
@@ -28,4 +28,6 @@ public class PaginaController {
     public String noticias(){
         return "noticias";
     }
+
+
 }

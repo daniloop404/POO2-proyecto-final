@@ -111,144 +111,21 @@
 
 
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Tarjeta 1: One Piece -->
-            <div class="col-md-2 mb-2">
+<div class="container">
+    <div class="row justify-content-center">
+        <div th:each="titulo : ${titulos}" class="col-md-2 mb-2">
+            <a th:href="@{/listaepisodios/{tituloNombre}(tituloNombre=${titulo.nombreTitulo})}">
                 <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
+                    <img th:src="${titulo.imagenUrl}" class="card-img-top" th:alt="${titulo.nombreTitulo}">
                     <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
+                        <h4 class="card-title" th:text="${titulo.nombreTitulo}"></h4>
+                        <p class="card-text" th:text="${titulo.descripcion}"></p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Tarjeta 2: Dragon Ball -->
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agrega más tarjetas según sea necesario -->
-
-            <!-- Tarjeta 3: Attack on Titan -->
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2: Dragon Ball -->
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agrega más tarjetas según sea necesario -->
-
-            <!-- Tarjeta 3: Attack on Titan -->
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-2">
-                <div class="card bg-secondary h-100">
-                    <img th:src="@{/img/amvcard1.jpg}" class="card-img-top" alt="One Piece">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">One Piece</h4>
-                        <p class="card-text">Una emocionante aventura de piratas en busca del tesoro supremo, el One Piece, en un mundo lleno de peligros y misterios.</p>
-                    </div>
-                </div>
-            </div>
-
-
-
+            </a>
         </div>
     </div>
+</div>
 
 <footer class="footer bg-primary text-white text-center mt-4">
     <div class="container">
