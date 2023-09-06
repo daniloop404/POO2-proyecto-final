@@ -8,22 +8,6 @@ public class PaginaController {
     public String home(){
         return "index";
     }
-
-    @GetMapping("/registro")
-    public String registro(){
-        return "registro";
-    }
-
-   // @GetMapping("/catalogo")
-   // public String catalogo(){
-    //    return "catalogo";
-  //  }
-
-    @GetMapping("/login")
-    public String blog(){
-        return "login";
-    }
-
     @GetMapping("/noticias")
     public String noticias(){
         return "noticias";

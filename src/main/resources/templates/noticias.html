@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>noticias</title>
@@ -38,11 +40,18 @@
 
             <!-- Icono de usuario con estilo de hover y tamaño más grande -->
             <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
-                <li>
-                    <a href="registro" class="nav-link me-3">
+
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/registro}" class="nav-link me-3">
                         <i class="fas fa-user text-white fa-lg user-icon"></i>
                     </a>
                 </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" class="nav-link me-3 text-white">
+                        Salir
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

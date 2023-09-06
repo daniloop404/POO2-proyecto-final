@@ -12,5 +12,5 @@ public class Usuario {
     private Integer id;
     private String nombreUsuario;
     private String password;
-    // Add other fields and getters/setters
+    private String rol;
 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>login</title>
@@ -28,15 +30,22 @@
             <!-- Formulario de inicio de sesión en una caja de color negro -->
             <div class="card bg-dark text-white">
                 <div class="card-body">
+                    <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
+                        El nombre de usuario o la contraseña son incorrectos. Por favor, inténtalo de nuevo.
+                    </div>
                     <h4 class="card-title text-center">Inicio de Sesión</h4>
-                    <form>
+                    <!-- Utiliza Thymeleaf para el formulario -->
+
+                    <form th:action="@{/login}" method="post">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Dirección de correo electrónico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                            <!-- Cambia el label y el placeholder para el nombre de usuario -->
+                            <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario">
                         </div>
                         <div class="mb-3">
+                            <!-- Cambia el label y el placeholder para la contraseña -->
                             <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>

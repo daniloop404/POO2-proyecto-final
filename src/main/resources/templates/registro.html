@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>registro</title>
@@ -21,7 +23,6 @@
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>
-
 <div class="container justify-content-center align-items-center">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -29,23 +30,22 @@
             <div class="card bg-dark text-white">
                 <div class="card-body">
                     <h4 class="card-title text-center">Registro</h4>
-                    <form>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Dirección de correo electrónico</label>
-                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="termsCheck">
-                            <label class="form-check-label" for="termsCheck">Acepto los términos y condiciones</label>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Registrarse</button>
-                        </div>
-                    </form>
+                    <div th:if="${error}" class="alert alert-danger">
+                        <p th:text="${error}"></p>
+                    </div>
+<form method="post" th:object="${usuario}">
+    <div class="mb-3">
+        <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de usuario" th:field="*{nombreUsuario}">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" th:field="*{password}">
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+    </div>
+</form>
                     <!-- Enlace para iniciar sesión si ya tienes una cuenta -->
                     <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="login">Ingresa aquí</a></p>
                 </div>
@@ -53,7 +53,6 @@
         </div>
     </div>
 </div>
-
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>
