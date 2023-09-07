@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>agregaranime</title>
     <link rel="stylesheet" th:href="@{css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
     <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
@@ -73,33 +73,35 @@
 
 <div class="container justify-content-center align-items-center">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <!-- Formulario de inicio de sesión en una caja de color negro -->
+        <div class="col-md-8">
+            <!-- Formulario de creación de Título y Episodios -->
             <div class="card bg-dark text-white">
                 <div class="card-body">
-                    <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
-                        El nombre de usuario o la contraseña son incorrectos. Por favor, inténtalo de nuevo.
-                    </div>
-                    <h4 class="card-title text-center">Inicio de Sesión</h4>
-                    <!-- Utiliza Thymeleaf para el formulario -->
-
-                    <form th:action="@{/login}" method="post">
+                    <h4 class="card-title text-center">Crear Título de Anime con Episodios</h4>
+                    <form th:action="@{/crearTituloAnime}" method="post" id="animeForm">
                         <div class="mb-3">
-                            <!-- Cambia el label y el placeholder para el nombre de usuario -->
-                            <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
-                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario">
+                            <label for="nombreTitulo" class="form-label">Nombre del Título</label>
+                            <input type="text" class="form-control" id="nombreTitulo" name="nombreTitulo" placeholder="Nombre del Título">
                         </div>
                         <div class="mb-3">
-                            <!-- Cambia el label y el placeholder para la contraseña -->
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Descripción"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="imagenUrl" class="form-label">URL de la Imagen</label>
+                            <input type="text" class="form-control" id="imagenUrl" name="imagenUrl" placeholder="URL de la Imagen">
+                        </div>
+                        <hr>
+                        <h5>Episodios</h5>
+                        <div id="episodiosContainer">
+                            <!-- Aquí se agregarán dinámicamente los campos de episodios -->
+                        </div>
+                        <button type="button" class="btn btn-primary" id="agregarEpisodio">Agregar Episodio</button>
+                        <hr>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                            <button type="submit" class="btn btn-success">Crear Título de Anime</button>
                         </div>
                     </form>
-                    <!-- Enlace para registrarse si aún no tienes una cuenta -->
-                    <p class="text-center mt-3">¿No tienes una cuenta? <a href="registro">Regístrate aquí</a></p>
                 </div>
             </div>
         </div>
@@ -139,7 +141,34 @@
         </div>
     </div>
 </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const episodiosContainer = document.getElementById("episodiosContainer");
+        const agregarEpisodioButton = document.getElementById("agregarEpisodio");
 
+        let episodioIndex = 1;
+
+        agregarEpisodioButton.addEventListener("click", function () {
+            const episodioHTML = `
+                <div class="mb-3">
+                    <label for="nombreEpisodio${episodioIndex}" class="form-label">Nombre del Episodio ${episodioIndex}</label>
+                    <input type="text" class="form-control" id="nombreEpisodio${episodioIndex}" name="nombreEpisodios" placeholder="Nombre del Episodio ${episodioIndex}">
+                </div>
+                <div class="mb-3">
+                    <label for="videoUrl${episodioIndex}" class="form-label">URL del Video del Episodio ${episodioIndex}</label>
+                    <input type="text" class="form-control" id="videoUrl${episodioIndex}" name="videoUrls" placeholder="URL del Video del Episodio ${episodioIndex}">
+                </div>
+            `;
+
+            const episodioDiv = document.createElement("div");
+            episodioDiv.innerHTML = episodioHTML;
+
+            episodiosContainer.appendChild(episodioDiv);
+
+            episodioIndex++;
+        });
+    });
+</script>
 
 
 </body>

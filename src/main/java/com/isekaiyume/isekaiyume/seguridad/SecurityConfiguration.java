@@ -23,7 +23,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class SecurityConfiguration {
 
-    @Bean
+   /* @Bean
     public UserDetailsService userDetailsService() {
         // Configura usuarios y roles
         UserDetails user = User.withDefaultPasswordEncoder()
@@ -39,7 +39,7 @@ public class SecurityConfiguration {
 
         return new InMemoryUserDetailsManager(user, admin);
     }
-
+*/
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -47,7 +47,7 @@ public class SecurityConfiguration {
                         authorizeRequests
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // Permitir recursos estáticos como CSS, JS, etc.
                                 .requestMatchers("/listaepisodios/**", "/episodios/**").authenticated() // Requiere autenticación para /listaepisodios y /episodios
-                                .requestMatchers("/admin/**").hasRole("ADMIN") // Requiere rol ADMIN para /admin/**
+                                .requestMatchers("/manejousuarios/**", "/manejocatalogo/**").hasAnyAuthority("ADMIN") // Requiere rol ADMIN para /admin/**
                                 .anyRequest().permitAll() // Permite acceso no autenticado a todas las demás solicitudes
                 )
                 .formLogin(formLogin ->

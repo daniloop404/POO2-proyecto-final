@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>catalogo</title>
+    <title>manejocatalogo</title>
     <link rel="stylesheet" th:href="@{css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
     <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
@@ -124,6 +124,8 @@
     </div>
 </div>
 
+
+
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>
@@ -133,17 +135,27 @@
 <div class="container">
     <div class="row justify-content-center">
         <div th:each="titulo : ${titulos}" class="col-md-2 mb-2">
-            <a th:href="@{/listaepisodios/{tituloNombre}(tituloNombre=${titulo.nombreTitulo})}">
-                <div class="card bg-secondary h-100">
-                    <img th:src="${titulo.imagenUrl}" class="card-img-top" th:alt="${titulo.nombreTitulo}">
-                    <div class="card-body text-center">
-                        <h4 class="card-title" th:text="${titulo.nombreTitulo}"></h4>
-                        <p class="card-text" th:text="${titulo.descripcion}"></p>
-                    </div>
+            <div class="card bg-secondary h-100">
+                <img th:src="${titulo.imagenUrl}" class="card-img-top" th:alt="${titulo.nombreTitulo}">
+                <div class="card-body text-center">
+                    <h4 class="card-title" th:text="${titulo.nombreTitulo}"></h4>
+                    <p class="card-text" th:text="${titulo.descripcion}"></p>
+                    <!-- Formulario para modificar el título -->
+                    <form th:action="@{'/modificarAnime/' + ${titulo.id}}" method="get">
+                        <button type="submit" class="btn btn-primary">Modificar</button>
+                    </form>
+                    <!-- Formulario para eliminar el título -->
+                    <form th:action="@{'/eliminarAnime/' + ${titulo.id}}" method="post">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
+</div>
+<div class="container mt-4 text-center">
+    <a th:href="@{/agregaranime}" class="btn btn-success mb-3">Agregar Anime</a>
+    <!-- Resto de tu código -->
 </div>
 
 <footer class="footer bg-primary text-white text-center mt-4">

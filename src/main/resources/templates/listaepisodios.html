@@ -30,6 +30,16 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/noticias">Noticias</a>
                 </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejousuarios}" class="nav-link me-3 text-bg-warning">
+                        Manejo Usuarios
+                    </a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejocatalogo}" class="nav-link me-3 text-bg-warning">
+                        Manejo Catalogo
+                    </a>
+                </li>
             </ul>
 
             <!-- Barra de búsqueda -->
@@ -44,7 +54,7 @@
             <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
 
                 <li sec:authorize="!isAuthenticated()">
-                    <a th:href="@{/registro}" class="nav-link me-3">
+                    <a th:href="@{/login}" class="nav-link me-3">
                         <i class="fas fa-user text-white fa-lg user-icon"></i>
                     </a>
                 </li>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>modificaranime</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
+    <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body style="background-color: black" >
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/">
+            <img th:src="@{/img/logo.png}" alt="IsekaiYume" class="navbar-logo">
+            IsekaiYume
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/catalogo">Catalogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/noticias">Noticias</a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejousuarios}" class="nav-link me-3 text-bg-warning">
+                        Manejo Usuarios
+                    </a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejocatalogo}" class="nav-link me-3 text-bg-warning">
+                        Manejo Catalogo
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Barra de búsqueda -->
+            <form class="form-inline">
+                <div class="input-group">
+                    <button class="btn btn-outline-light" type="submit">Buscar anime</button>
+                    <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+                </div>
+            </form>
+
+            <!-- Icono de usuario con estilo de hover y tamaño más grande -->
+            <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
+
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/login}" class="nav-link me-3">
+                        <i class="fas fa-user text-white fa-lg user-icon"></i>
+                    </a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" class="nav-link me-3 text-white">
+                        Salir
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid blue;"></div>
+</div>
+
+<div class="container justify-content-center align-items-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Formulario de modificación de Título y Episodios -->
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Modificar Título de Anime con Episodios</h4>
+                    <form th:action="@{/modificarAnime}" method="post" id="animeForm">
+                        <!-- Campo oculto para enviar el ID del anime a modificar -->
+                        <input type="hidden" name="id" th:value="${titulo.id}" />
+
+                        <div class="mb-3">
+                            <label for="nombreTitulo" class="form-label">Nombre del Título</label>
+                            <input type="text" class="form-control" id="nombreTitulo" name="nombreTitulo" th:value="${titulo.nombreTitulo}" placeholder="Nombre del Título">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Descripción" th:text="${titulo.descripcion}"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagenUrl" class="form-label">URL de la Imagen</label>
+                            <input type="text" class="form-control" id="imagenUrl" name="imagenUrl" th:value="${titulo.imagenUrl}" placeholder="URL de la Imagen">
+                        </div>
+                        <hr>
+                        <h5>Episodios</h5>
+                        <div id="episodiosContainer">
+                            <!-- Mostrar episodios actuales -->
+                            <div th:each="episodio, episodioIndex : ${titulo.episodios}" class="episodio">
+                                <div class="mb-3">
+                                    <label th:for="${'nombreEpisodio' + episodioIndex.index}" class="form-label" th:text="${'Nombre del Episodio ' + (episodioIndex.index + 1)}"></label>
+                                    <input type="text" class="form-control" th:id="${'nombreEpisodio' + episodioIndex.index}" th:name="${'episodios[' + episodioIndex.index + '].nombreEpisodio'}" th:value="${episodio.nombreEpisodio}" placeholder="Nombre del Episodio">
+                                </div>
+                                <div class="mb-3">
+                                    <label th:for="${'videoUrl' + episodioIndex.index}" class="form-label" th:text="${'URL del Video del Episodio ' + (episodioIndex.index + 1)}"></label>
+                                    <input type="text" class="form-control" th:id="${'videoUrl' + episodioIndex.index}" th:name="${'episodios[' + episodioIndex.index + '].videoUrl'}" th:value="${episodio.videoUrl}" placeholder="URL del Video del Episodio">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Botón para agregar episodios -->
+                        <button type="button" class="btn btn-primary" id="agregarEpisodio">Agregar Episodio</button>
+                        <hr>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5 mx-auto custom-width">
+    <div style="border-bottom: 2px solid blue;"></div>
+</div>
+
+<footer class="footer bg-primary text-white text-center mt-4 align-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Descubre</h4>
+                <p>Series populares</p>
+                <p>Simulcasts</p>
+                <p>Explora</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Soporte</h4>
+                <p>Contacto</p>
+                <p>Centro de ayuda</p>
+                <p>Foros</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Legal</h4>
+                <p>Términos de uso</p>
+                <p>Política de privacidad</p>
+                <p>Política de cookies</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2023 IsekaiYume. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const episodiosContainer = document.getElementById("episodiosContainer");
+        const agregarEpisodioButton = document.getElementById("agregarEpisodio");
+
+        agregarEpisodioButton.addEventListener("click", function () {
+            const episodioCount = episodiosContainer.querySelectorAll(".episodio").length;
+            const episodioIndex = episodioCount + 1;
+
+            const episodioHTML = `
+            <div class="episodio mb-3">
+                <label for="nombreEpisodio${episodioIndex}" class="form-label">Nombre del Episodio ${episodioIndex}</label>
+                <input type="text" class="form-control" id="nombreEpisodio${episodioIndex}" name="episodios[${episodioCount}].nombreEpisodio" placeholder="Nombre del Episodio ${episodioIndex}">
+            </div>
+            <div class="mb-3">
+                <label for="videoUrl${episodioIndex}" class="form-label">URL del Video del Episodio ${episodioIndex}</label>
+                <input type="text" class="form-control" id="videoUrl${episodioIndex}" name="episodios[${episodioCount}].videoUrl" placeholder="URL del Video del Episodio ${episodioIndex}">
+            </div>
+        `;
+
+            const episodioDiv = document.createElement("div");
+            episodioDiv.classList.add("episodio");
+            episodioDiv.innerHTML = episodioHTML;
+
+            episodiosContainer.appendChild(episodioDiv);
+        });
+    });
+</script>
+
+</body>
+</html>

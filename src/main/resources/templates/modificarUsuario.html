@@ -4,11 +4,11 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
-    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <title>modificarusuario</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}">
-    <link rel="icon" th:href="@{img/logo.png}" type="image/x-icon">
-    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <link rel="icon" th:href="@{/img/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body style="background-color: black" >
 <nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
@@ -70,42 +70,40 @@
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>
-
 <div class="container justify-content-center align-items-center">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <!-- Formulario de inicio de sesión en una caja de color negro -->
+            <!-- Formulario de modificación de usuario en una caja de color negro -->
             <div class="card bg-dark text-white">
                 <div class="card-body">
-                    <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
-                        El nombre de usuario o la contraseña son incorrectos. Por favor, inténtalo de nuevo.
+                    <h4 class="card-title text-center">Modificar Usuario</h4>
+                    <div th:if="${error}" class="alert alert-danger">
+                        <p th:text="${error}"></p>
                     </div>
-                    <h4 class="card-title text-center">Inicio de Sesión</h4>
-                    <!-- Utiliza Thymeleaf para el formulario -->
-
-                    <form th:action="@{/login}" method="post">
+                    <form method="post" th:object="${usuario}" th:action="@{/modificarUsuario/{id}(id=${usuario.id})}">
+                        <input type="hidden" th:field="*{id}" /> <!-- Campo oculto para el ID del usuario -->
                         <div class="mb-3">
-                            <!-- Cambia el label y el placeholder para el nombre de usuario -->
-                            <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
-                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario">
+                            <label for="nombreUsuario" class="form-label">Nuevo Nombre de usuario</label>
+                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nuevo Nombre de usuario" th:field="*{nombreUsuario}">
                         </div>
                         <div class="mb-3">
-                            <!-- Cambia el label y el placeholder para la contraseña -->
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                            <label for="rol" class="form-label">Nuevo Rol</label>
+                            <select class="form-select" id="rol" name="rol" th:field="*{rol}">
+                                <option value="USER">USER</option>
+                                <option value="ADMIN">ADMIN</option>
+                            </select>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                            <button type="submit" class="btn btn-primary">Modificar</button>
                         </div>
                     </form>
-                    <!-- Enlace para registrarse si aún no tienes una cuenta -->
-                    <p class="text-center mt-3">¿No tienes una cuenta? <a href="registro">Regístrate aquí</a></p>
+                    <!-- Enlace para regresar o realizar otras acciones después de la modificación -->
+                    <p class="text-center mt-3"><a href="/manejousuarios">Volver a la lista de usuarios</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="container my-5 mx-auto custom-width">
     <div style="border-bottom: 2px solid blue;"></div>
 </div>

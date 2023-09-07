@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="/">
-            <img th:src="@{img/logo.png}" alt="IsekaiYume" class="navbar-logo">
+            <img th:src="@{/img/logo.png}" alt="IsekaiYume" class="navbar-logo">
             IsekaiYume
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,20 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="catalogo">Catalogo</a>
+                    <a class="nav-link text-white" href="/catalogo">Catalogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="noticias">Noticias</a>
+                    <a class="nav-link text-white" href="/noticias">Noticias</a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejousuarios}" class="nav-link me-3 text-bg-warning">
+                        Manejo Usuarios
+                    </a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/manejocatalogo}" class="nav-link me-3 text-bg-warning">
+                        Manejo Catalogo
+                    </a>
                 </li>
             </ul>
 
@@ -43,7 +53,7 @@
             <ul class="navbar-nav ml-auto justify-content-end align-items-center lista">
 
                 <li sec:authorize="!isAuthenticated()">
-                    <a th:href="@{/registro}" class="nav-link me-3">
+                    <a th:href="@{/login}" class="nav-link me-3">
                         <i class="fas fa-user text-white fa-lg user-icon"></i>
                     </a>
                 </li>
